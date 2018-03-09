@@ -39,7 +39,9 @@
     tableau.registerConnector(myConnector);
     // Create event listeners for when the user submits the form
     $(document).ready(function() {
-        tableau.submit();
+        setTimeout(function() {
+            tableau.submit();
+        }, 1000);
     });
 })();
     </script>
