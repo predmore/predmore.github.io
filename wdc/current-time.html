@@ -27,8 +27,8 @@
         var utc = date.getTime() - (date.getTimezoneOffset() * 60000);
         var pacificDate = new Date(utc + (600000 * timezoneOffset));
 
-        var hour = date.getHours();
-        var minute = date.getMinutes();
+        var hour = pacificDate.getHours();
+        var minute = pacificDate.getMinutes();
 
         var dateNumber = (hour * 100) + minute
 
