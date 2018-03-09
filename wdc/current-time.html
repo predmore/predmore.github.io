@@ -31,7 +31,10 @@
         var month = date.getMonth() + 1;
         var day = date.getDate();
 
-        var dateNumber = (year * 10000) + (month * 100) + day
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+
+        var dateNumber = (year * 100000000) + (month * 1000000) + (day * 10000) + (hour * 100) + minute
 
         table.appendRows([{"time": dateNumber}]);
         doneCallback();
