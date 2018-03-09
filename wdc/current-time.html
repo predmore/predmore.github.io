@@ -26,6 +26,7 @@
     // Download the data
     myConnector.getData = function(table, doneCallback) {
         $.ajax({
+            cache: false,
             url: "http://currentmillis.com/time/minutes-since-unix-epoch.php",
             success: function(result) {
                 // Convert from minutes to seconds
