@@ -27,14 +27,10 @@
         var utc = date.getTime() - (date.getTimezoneOffset() * 60000);
         var pacificDate = new Date(utc + (600000 * timezoneOffset));
 
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-
         var hour = date.getHours();
         var minute = date.getMinutes();
 
-        var dateNumber = (year * 100000000) + (month * 1000000) + (day * 10000) + (hour * 100) + minute
+        var dateNumber = (hour * 100) + minute
 
         table.appendRows([{"time": dateNumber}]);
         doneCallback();
