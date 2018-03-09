@@ -25,20 +25,21 @@
     };
     // Download the data
     myConnector.getData = function(table, doneCallback) {
-        $.ajax({
-            cache: false,
-            url: "http://currentmillis.com/time/minutes-since-unix-epoch.php",
-            success: function(result) {
+        //$.ajax({
+        //    cache: false,
+        //    url: "http://currentmillis.com/time/minutes-since-unix-epoch.php",
+        //    success: function(result) {
                 // Convert from minutes to seconds
-                var now = moment.unix((+result) * 60);
+        //        var now = moment.unix((+result) * 60);
+        var now = moment();
                 var pacific = now.tz("America/Los_Angeles");
 
                 var dateNumber = +pacific.format("HHmm");
 
                 table.appendRows([{"time": dateNumber}]);
                 doneCallback();
-            }
-        });
+            //}
+        //});
     };
     tableau.registerConnector(myConnector);
     // Create event listeners for when the user submits the form
