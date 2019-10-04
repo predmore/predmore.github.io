@@ -34,14 +34,12 @@
         myConnector.getData = function(table, doneCallback) {
           var count = 20000;
 
-          var dateOffsets = Array.from(Array(count).keys());
-
           var now = moment();
           var pacific = now.tz("America/Los_Angeles");
 
           var previousValue = 0;
 
-          dateOffsets.forEach(function(offset) {
+          for (var i = 0; i < count; i++>) {
             var time = pacific.subtract(1, 'd');
             var timeString = time.format("MM/DD/YYYY");
 
