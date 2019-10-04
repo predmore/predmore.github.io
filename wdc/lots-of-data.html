@@ -42,7 +42,7 @@
           var previousValue = 0;
 
           dateOffsets.forEach(function(offset) {
-            var time = pacific.subtract(offset, 'd');
+            var time = pacific.subtract(1, 'd');
             var timeString = time.format("MM/DD/YYYY");
 
             var value = Math.sin(time.dayOfYear() + 400 * time.year()) * 10 + previousValue;
