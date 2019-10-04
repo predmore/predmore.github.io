@@ -45,7 +45,7 @@
             var time = pacific.subtract(1, 'd');
             var timeString = time.format("MM/DD/YYYY");
 
-            var value = Math.sin((time.dayOfYear() + 400 * time.year()) / 10) * 100 + previousValue;
+            var value = Math.floor(Math.sin((time.dayOfYear() + 366 * time.year())) * 100000) / 100 + previousValue;
 
             previousValue = value;
 
