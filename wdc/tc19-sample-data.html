@@ -52,11 +52,11 @@
           var quantity = Math.seededRandomInt(quantityRange.min, quantityRange.max);
           return {
             "order_date": date.format("MM/DD/YYYY HH:mm:ss"),
-            "region": possibleRegions[Math.seededRandomInt(0, possibleRegions.length)],
-            "product": possibleProducts[Math.seededRandomInt(0, possibleProducts.length)],
+            "region": possibleRegions[Math.seededRandomInt(0, possibleRegions.length - 1)],
+            "product": possibleProducts[Math.seededRandomInt(0, possibleProducts.length - 1)],
             "quantity": quantity,
             "amount": Math.seededRandom(amountPerItemRange.min, amountPerItemRange.max) * quantity,
-            "customer": possibleCustomers[Math.seededRandomInt(0, possibleCustomers.length)],
+            "customer": possibleCustomers[Math.seededRandomInt(0, possibleCustomers.length - 1)],
             "cost": Math.seededRandom(costPerItemRange.min, costPerItemRange.max) * quantity,
             "days_to_ship": Math.seededRandom(daysToShipRange.min, daysToShipRange.max)
           };
