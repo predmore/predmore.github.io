@@ -58,7 +58,7 @@
           };
         };
 
-        var generateRowsForDate(date) {
+        var generateRowsForDate = function(date) {
           if (Math.seededRandom(0, 1000000) / 1000000 >= probabilityOfRowsOnDate) {
             return [];
           }
