@@ -46,7 +46,7 @@
         var costPerItemRange = { min: 300, max: 600 };
         var daysToShipRange = { min: 1, max: 10 };
         var numberOfRowsPerDateRange = { min: 1, max: 3 };
-        var probabilityOfRowsOnDate = 0.10;
+        var probabilityOfRowsOnDate = 0.05;
 
         var generateRowForDate = function(date) {
           var quantity = Math.seededRandomInt(quantityRange.min, quantityRange.max);
@@ -88,7 +88,7 @@
 
             rows.push.apply(rows, newRows);
 
-            currentDate = currentDate.add(1, 'd');
+            currentDate = currentDate.add(1, 'm');
           }
 
           return rows;
@@ -105,7 +105,7 @@
               {
                 id: "order_date",
                 description: "The timestamp of the order",
-                dataType: tableau.dataTypeEnum.date
+                dataType: tableau.dataTypeEnum.datetime
               },
               {
                 id: "region",
