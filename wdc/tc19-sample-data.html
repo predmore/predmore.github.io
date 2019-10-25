@@ -23,6 +23,10 @@
           return min + rnd * (max - min);
         }
 
+        Math.seededRandomInt = function(min, max) {
+          return Math.max(Math.floor(Math.seededRandom(min, max + 1)), max);
+        }
+
         // Desired Schema
         // order_date: Date - The timestamp of the order
         // region: String - The region, either north, south, east, or west
@@ -48,12 +52,12 @@
           var quantity = Math.seededRandom(quantityRange.min, quantityRange.max);
           return {
             "order_date": date.format("MM/DD/YYYY HH:mm:ss"),
-            "region": possibleRegions[Math.seededRandom(0, possibleRegions.length)],
-            "product": possibleProducts[Math.seededRandom(0, possibleProducts.length)],
+            "region": possibleRegions[Math.seededRandomInt(0, possibleRegions.length)],
+            "product": possibleProducts[Math.seededRandomInt(0, possibleProducts.length)],
             "quantity": quantity,
-            "amount": Math.seededRandom(amountPerItemRange.min * 100, amountPerItemRange.max * 100) / 100 * quantity,
-            "customer": possibleCustomers[Math.seededRandom(0, possibleCustomers.length)],
-            "cost": Math.seededRandom(costPerItemRange.min * 100, costPerItemRange.max * 100) / 100 * quantity,
+            "amount": Math.seededRandom(amountPerItemRange.min, amountPerItemRange.max) * quantity,
+            "customer": possibleCustomers[Math.seededRandomInt(0, possibleCustomers.length)],
+            "cost": Math.seededRandom(costPerItemRange.min, costPerItemRange.max) * quantity,
             "days_to_ship": Math.seededRandom(daysToShipRange.min, daysToShipRange.max)
           };
         };
@@ -63,7 +67,7 @@
             return [];
           }
 
-          var numberOfRows = Math.seededRandom(numberOfRowsPerDateRange.min, numberOfRowsPerDateRange.max);
+          var numberOfRows = Math.seededRandomInt(numberOfRowsPerDateRange.min, numberOfRowsPerDateRange.max);
 
           var rows = [];
 
@@ -95,7 +99,7 @@
         // Define the schema
         myConnector.getSchema = function(schemaCallback) {
           schemaCallback([{
-            id: "lotsOfData",
+            id: "sample_data",
             description: "Gives you lots of boring, useless, data",
             columns: [
               {
