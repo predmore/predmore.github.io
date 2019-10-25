@@ -32,9 +32,9 @@
         // region: String - The region, either north, south, east, or west
         // product: String - The product that was sold, either A, B, C, D, E, F, G, H, or I
         // quantity: Real - The number of products that were ordered
-        // amount: Real - The Number of USD paid for the order
+        // amount: Real - The Number of USD paid for the order // TODO CHANGE TO sales
         // customer: String - The name of the customer
-        // cost: Real - The amount it will cost to produce the order
+        // cost: Real - The amount it will cost to produce the order // TODO CHANGE TO cost_of_goods
         // days_to_ship: Real - the number of days it will take to ship the product
 
         // Create Test Data
@@ -45,8 +45,8 @@
         var possibleCustomers = ["Norma Cote", "Silas Reese", "Anabel Walls", "Pharrell Stephenson", "Aubrey Graham", "Isla-Mae Kearns", "Kezia Lucero", "Kwabena Holt", "Bethany Mcphee", "Roshni Bridges"];
         var costPerItemRange = { min: 0.1, max: 3 };
         var daysToShipRange = { min: 1, max: 10 };
-        var numberOfRowsPerDateRange = { min: 1, max: 3 };
-        var probabilityOfRowsOnDate = 0.05;
+        var numberOfRowsPerDateRange = { min: 5, max: 10 };
+        var probabilityOfRowsOnDate = 1.0;
 
         var generateRowForDate = function(date) {
           var quantity = Math.seededRandomInt(quantityRange.min, quantityRange.max);
@@ -58,7 +58,7 @@
             "amount": Math.seededRandom(amountPerItemRange.min, amountPerItemRange.max) * quantity,
             "customer": possibleCustomers[Math.seededRandomInt(0, possibleCustomers.length - 1)],
             "cost": Math.seededRandom(costPerItemRange.min, costPerItemRange.max) * quantity,
-            "days_to_ship": Math.seededRandom(daysToShipRange.min, daysToShipRange.max)
+            "days_to_ship": Math.seededRandomInt(daysToShipRange.min, daysToShipRange.max)
           };
         };
 
