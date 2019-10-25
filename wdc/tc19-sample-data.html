@@ -24,7 +24,7 @@
         }
 
         Math.seededRandomInt = function(min, max) {
-          return Math.max(Math.floor(Math.seededRandom(min, max + 1)), max);
+          return Math.min(Math.floor(Math.seededRandom(min, max + 1)), max);
         }
 
         // Desired Schema
@@ -49,7 +49,7 @@
         var probabilityOfRowsOnDate = 0.10;
 
         var generateRowForDate = function(date) {
-          var quantity = Math.seededRandom(quantityRange.min, quantityRange.max);
+          var quantity = Math.seededRandomInt(quantityRange.min, quantityRange.max);
           return {
             "order_date": date.format("MM/DD/YYYY HH:mm:ss"),
             "region": possibleRegions[Math.seededRandomInt(0, possibleRegions.length)],
