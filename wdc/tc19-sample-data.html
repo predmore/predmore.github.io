@@ -146,7 +146,7 @@
             "quantity": quantity,
             "amount": randomForDate(date, product.amountRange.min, product.amountRange.max) * quantity,
             "customer": possibleCustomers[Math.seededRandomInt(0, possibleCustomers.length - 1)],
-            "cost": randomForDate(date, product.costRange.min, costRange.max) * quantity,
+            "cost": randomForDate(date, product.costRange.min, product.costRange.max) * quantity,
             "days_to_ship": Math.floor(randomForDate(date, product.daysToShipRange.min, product.daysToShipRange.max))
           };
         };
