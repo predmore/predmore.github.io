@@ -108,7 +108,7 @@
         var probabilityOfRowsOnDate = 0.5;
 
         var generateRowForDate = function(date) {
-          var quantity = Math.floor(randomForDate(quantityRange.min, quantityRange.max));
+          var quantity = Math.floor(randomForDate(date, quantityRange.min, quantityRange.max));
           return {
             "order_date": date.format("MM/DD/YYYY HH:mm:ss"),
             "region": possibleRegions[Math.seededRandomInt(0, possibleRegions.length - 1)],
