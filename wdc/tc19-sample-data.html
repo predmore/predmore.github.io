@@ -80,7 +80,7 @@
         var noise = new Simple1DNoise();
 
         var randomForDate = function(date, min, max) {
-          var randomNumber = noise.getVal(date.unix() / 3600);
+          var randomNumber = noise.getVal(date.unix() / 60);
 
           return (randomNumber * (max - min) + min);
         };
